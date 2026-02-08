@@ -1,1 +1,24 @@
 .venv
+
+# ChromeDriver executables (user must download their own version)
+chromedriver-win64/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
