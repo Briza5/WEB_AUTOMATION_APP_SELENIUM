@@ -5,10 +5,12 @@ This project is part of **The Python Mega Course** - a learning journey into web
 ## Project Overview
 
 This application demonstrates how to:
-- Control web browsers programmatically
-- Automate website login
-- Fill and submit web forms
-- Download files automatically
+- Control web browsers programmatically with Selenium WebDriver
+- Use explicit waits for reliable element location
+- Automate website login with form filling
+- Handle edge cases (e.g., ad banners blocking elements)
+- Submit web forms programmatically
+- Download files automatically (upcoming)
 - Build a desktop GUI for web automation (optional)
 
 ## Course Sections Covered
@@ -44,19 +46,31 @@ python main.py
 ```
 
 The script will:
-1. Open Chrome browser
-2. Navigate to the demo login page
-3. Wait for user input before closing
+1. Open Chrome browser with custom options
+2. Navigate to the demo login page (https://demoqa.com/login)
+3. Wait for username and password fields to be visible
+4. Fill in the credentials
+5. Submit the login form using JavaScript click (to avoid ad banner interference)
+6. Wait for user input before closing the browser
 
 ## Project Status
 
 🚧 **Work in Progress** - This project is being developed incrementally as part of the course curriculum.
 
+## Current Features
+
+- ✅ Chrome WebDriver setup with custom options
+- ✅ Explicit waits using `WebDriverWait` and `EC`
+- ✅ Form field location by ID
+- ✅ Automated login with credentials
+- ✅ JavaScript-based click to handle ad banners
+
 ## Notes
 
-- Currently implements basic browser control
-- More features will be added in upcoming lessons
-- Code will be refactored to OOP in later sections
+- Uses explicit waits instead of implicit waits for better reliability
+- JavaScript click is used for the login button to bypass potential ad banner overlays
+- Chrome option `--disable-search-engine-screen` prevents initial search engine selection
+- More features will be added in upcoming lessons (file downloading, OOP refactoring, GUI)
 
 ## Resources
 

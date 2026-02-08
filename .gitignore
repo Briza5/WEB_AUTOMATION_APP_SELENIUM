@@ -1,5 +1,8 @@
 .venv
 
+# Personal course notes (Czech)
+POZNAMKY_CZ.md
+
 # ChromeDriver executables (user must download their own version)
 chromedriver-win64/
 
