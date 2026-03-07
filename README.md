@@ -50,23 +50,31 @@ Run the main script:
 python main.py
 ```
 
-The script will:
+Run the GUI application:
 
-1. Open Chrome with download directory set to the current working directory
-2. Navigate to the demo login page at `https://demoqa.com/login`
-3. Fill in credentials and submit the login form using JavaScript click
-4. Navigate to Elements > Text Box, fill in the form and submit
-5. Navigate to Elements > Upload and Download section
-6. Click the download button to trigger file download
-7. Wait for user input before closing the browser
+```bash
+python gui.py
+```
+
+The GUI will:
+
+1. Display a form with login credentials and Text Box form fields
+2. On Submit — open Chrome, log in, fill the form, and download the sample file
+3. On Close Browser — close the Chrome session and show a confirmation dialog
+
+Alternatively, run the automation directly without GUI:
+
+```bash
+python main.py
+```
 
 ## Project Status
 
-Work in Progress - This project is being developed incrementally as part of the course curriculum.
+Complete - All course sections implemented.
 
 ## Code Structure
 
-The code is organized into a `WebAutomation` class with the following methods:
+**`main.py`** — `WebAutomation` class handling all browser automation:
 
 | Method | Description |
 | --- | --- |
@@ -76,9 +84,17 @@ The code is organized into a `WebAutomation` class with the following methods:
 | `download()` | Navigates to Upload & Download section and triggers a file download |
 | `close()` | Closes the browser session |
 
+**`gui.py`** — `App` class building the desktop GUI with tkinter:
+
+| Frame | Contents |
+| --- | --- |
+| `login_frame` | Username and password entry fields |
+| `form_frame` | Full name, email, current and permanent address fields |
+| `button_frame` | Submit and Close Browser buttons |
+
 ## Current Features
 
-- OOP design with `WebAutomation` class
+- OOP design with `WebAutomation` class (`main.py`) and `App` class (`gui.py`)
 - Chrome WebDriver setup with custom options and download preferences
 - Explicit waits using `WebDriverWait` and `EC`
 - Element location by ID and XPath
@@ -97,6 +113,8 @@ The code is organized into a `WebAutomation` class with the following methods:
 - XPath is used when elements don't have a unique ID attribute
 - Download path is set to `os.getcwd()` — files download to the project folder
 - Entry point guarded with `if __name__ == "__main__":` for reusability
+- GUI built with tkinter — split into `login_frame`, `form_frame`, and `button_frame`
+- `WebAutomation` instance created on Submit button click, keeping GUI and automation decoupled
 
 ## Resources
 
