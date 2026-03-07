@@ -49,9 +49,10 @@ The script will:
 1. Open Chrome browser with custom options
 2. Navigate to the demo login page (https://demoqa.com/login)
 3. Wait for username and password fields to be visible
-4. Fill in the credentials
-5. Submit the login form using JavaScript click (to avoid ad banner interference)
-6. Wait for user input before closing the browser
+4. Fill in the credentials and submit the login form using JavaScript click
+5. Navigate to the Elements > Text Box section via XPath and ID locators
+6. Fill in the Text Box form (full name, email, addresses) and submit
+7. Wait for user input before closing the browser
 
 ## Project Status
 
@@ -61,15 +62,18 @@ The script will:
 
 - ✅ Chrome WebDriver setup with custom options
 - ✅ Explicit waits using `WebDriverWait` and `EC`
-- ✅ Form field location by ID
+- ✅ Element location by ID and XPath
 - ✅ Automated login with credentials
 - ✅ JavaScript-based click to handle ad banners
+- ✅ Navigation via hamburger menu (XPath locator)
+- ✅ Automated form filling and submission
 
 ## Notes
 
 - Uses explicit waits instead of implicit waits for better reliability
-- JavaScript click is used for the login button to bypass potential ad banner overlays
+- JavaScript click is used for buttons to bypass potential ad banner overlays
 - Chrome option `--disable-search-engine-screen` prevents initial search engine selection
+- XPath is used when elements don't have a unique ID attribute
 - More features will be added in upcoming lessons (file downloading, OOP refactoring, GUI)
 
 ## Resources
