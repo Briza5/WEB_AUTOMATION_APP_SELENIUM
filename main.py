@@ -9,11 +9,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # Import the By class for locating elements
 from selenium.webdriver.common.by import By
+import os  # Import the os module for handling file paths
 
 # Define driver options for Chrome
 chrome_options = Options()  # Create an instance of the Options class
 # Add an argument to disable the search engine screen in Chrome
 chrome_options.add_argument("--disable-search-engine-screen")
+
+download_path = os.getcwd()  # Get the current working directory
+prefs = {
+    "download.default_directory": download_path
+}  # Set the default download directory to the current working directory
+# Add the preferences to the Chrome options
+chrome_options.add_experimental_option("prefs", prefs)
+
 # Set the path to the ChromeDriver executable
 # Create a Service object with the path to the ChromeDriver executable
 # Download the ChromeDriver for your version of Chrome
@@ -73,6 +82,14 @@ current_address_field.send_keys('123 Main St, Anytown, USA')
 # Enter the permanent address into the permanent address field
 permanent_address_field.send_keys('456 Elm St, Anytown, USA')
 driver.execute_script("arguments[0].click();", submit_button)
+
+# Locate the upload and download section and download button
+upload_download = WebDriverWait(driver, 10).until(
+    EC.visibility_of_element_located((By.ID, 'item-7')))
+upload_download.click()  # Click the elements dropdown to expand it
+
+download_button = driver.find_element(By.ID, 'downloadButton')
+driver.execute_script("arguments[0].click();", download_button)
 
 
 # Wait for user input before closing the browser

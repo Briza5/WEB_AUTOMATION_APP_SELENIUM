@@ -5,12 +5,14 @@ This project is part of **The Python Mega Course** - a learning journey into web
 ## Project Overview
 
 This application demonstrates how to:
+
 - Control web browsers programmatically with Selenium WebDriver
 - Use explicit waits for reliable element location
 - Automate website login with form filling
 - Handle edge cases (e.g., ad banners blocking elements)
 - Submit web forms programmatically
-- Download files automatically (upcoming)
+- Set custom Chrome download preferences
+- Download files automatically
 - Build a desktop GUI for web automation (optional)
 
 ## Course Sections Covered
@@ -33,40 +35,46 @@ This application demonstrates how to:
 
 1. Clone this repository
 2. Install the required dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
+
 3. Download ChromeDriver for your Chrome version and place it in the `chromedriver-win64/` folder
 
 ## Usage
 
 Run the main script:
+
 ```bash
 python main.py
 ```
 
 The script will:
-1. Open Chrome browser with custom options
-2. Navigate to the demo login page (https://demoqa.com/login)
-3. Wait for username and password fields to be visible
-4. Fill in the credentials and submit the login form using JavaScript click
-5. Navigate to the Elements > Text Box section via XPath and ID locators
-6. Fill in the Text Box form (full name, email, addresses) and submit
+
+1. Open Chrome with download directory set to the current working directory
+2. Navigate to the demo login page at `https://demoqa.com/login`
+3. Fill in credentials and submit the login form using JavaScript click
+4. Navigate to Elements > Text Box, fill in the form and submit
+5. Navigate to Elements > Upload and Download section
+6. Click the download button to trigger file download
 7. Wait for user input before closing the browser
 
 ## Project Status
 
-🚧 **Work in Progress** - This project is being developed incrementally as part of the course curriculum.
+Work in Progress - This project is being developed incrementally as part of the course curriculum.
 
 ## Current Features
 
-- ✅ Chrome WebDriver setup with custom options
-- ✅ Explicit waits using `WebDriverWait` and `EC`
-- ✅ Element location by ID and XPath
-- ✅ Automated login with credentials
-- ✅ JavaScript-based click to handle ad banners
-- ✅ Navigation via hamburger menu (XPath locator)
-- ✅ Automated form filling and submission
+- Chrome WebDriver setup with custom options and download preferences
+- Explicit waits using `WebDriverWait` and `EC`
+- Element location by ID and XPath
+- Automated login with credentials
+- JavaScript-based click to handle ad banners
+- Navigation via hamburger menu (XPath locator)
+- Automated form filling and submission
+- Custom download directory via `add_experimental_option`
+- Automated file downloading
 
 ## Notes
 
@@ -74,7 +82,8 @@ The script will:
 - JavaScript click is used for buttons to bypass potential ad banner overlays
 - Chrome option `--disable-search-engine-screen` prevents initial search engine selection
 - XPath is used when elements don't have a unique ID attribute
-- More features will be added in upcoming lessons (file downloading, OOP refactoring, GUI)
+- Download path is set to `os.getcwd()` — files download to the project folder
+- More features will be added in upcoming lessons (OOP refactoring, GUI)
 
 ## Resources
 
