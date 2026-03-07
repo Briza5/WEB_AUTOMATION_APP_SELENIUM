@@ -64,8 +64,21 @@ The script will:
 
 Work in Progress - This project is being developed incrementally as part of the course curriculum.
 
+## Code Structure
+
+The code is organized into a `WebAutomation` class with the following methods:
+
+| Method | Description |
+| --- | --- |
+| `__init__()` | Sets up Chrome options, download preferences, and initializes the WebDriver |
+| `login(username, password)` | Navigates to the login page and authenticates |
+| `fill_form(fullname, email, current_address, permanent_address)` | Navigates to Text Box and submits the form |
+| `download()` | Navigates to Upload & Download section and triggers a file download |
+| `close()` | Closes the browser session |
+
 ## Current Features
 
+- OOP design with `WebAutomation` class
 - Chrome WebDriver setup with custom options and download preferences
 - Explicit waits using `WebDriverWait` and `EC`
 - Element location by ID and XPath
@@ -83,7 +96,7 @@ Work in Progress - This project is being developed incrementally as part of the 
 - Chrome option `--disable-search-engine-screen` prevents initial search engine selection
 - XPath is used when elements don't have a unique ID attribute
 - Download path is set to `os.getcwd()` — files download to the project folder
-- More features will be added in upcoming lessons (OOP refactoring, GUI)
+- Entry point guarded with `if __name__ == "__main__":` for reusability
 
 ## Resources
 
